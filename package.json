@@ -1,0 +1,15 @@
+{
+    "name": "obsi-sync",
+    "version": "1.0.0",
+    "private": true,
+    "scripts": {
+        "start": "concurrently \"npm run server\" \"npm run client\"",
+        "server": "cd server && node server.js",
+        "client": "cd client && npm start",
+        "build": "cd client && npm run build",
+        "install": "cd server && npm install && cd ../client && npm install"
+    },
+    "dependencies": {
+        "concurrently": "^8.2.2"
+    }
+}

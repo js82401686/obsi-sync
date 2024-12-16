@@ -1,0 +1,28 @@
+services:
+  mongodb:
+    image: mongo:6
+    container_name: mongodb
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongodb_data:/data/db
+
+  backend:
+    build:
+      context: ./server
+    container_name: backend
+    ports:
+      - "3000:3000"
+    volumes:
+      - image_data:/app/images
+
+  frontend:
+    build:
+      context: ./client
+    container_name: frontend
+    ports:
+      - "3001:80"
+
+volumes:
+  mongodb_data:
+  image_data:
